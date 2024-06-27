@@ -17,18 +17,18 @@ sequelize.authenticate()
 const CAMUNDA_URL = 'http://localhost:8080/engine-rest';
 
 // Define API endpoints
-// app.post('/start-workflow', async (req, res) => {
-//   const { workflowKey, variables } = req.body;
-//   try {
-//     const response = await axios.post(`${CAMUNDA_URL}/process-definition/key/${workflowKey}/start`, {
-//       variables: Object.fromEntries(Object.entries(variables).map(([key, value]) => [key, { value }])),
-//     });
-//     res.json(response.data);
-//   } catch (error) {
-//     res.status(500).send(error.message);
-//   }
-// });
+app.post('/start-workflow', async (req, res) => {
+  const { workflowKey, variables } = req.body;
+  try {
+    const response = await axios.post(`${CAMUNDA_URL}/process-definition/key/${workflowKey}/start`, {
+      variables: Object.fromEntries(Object.entries(variables).map(([key, value]) => [key, { value }])),
+    });
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
 
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
+app.listen(4000, () => {
+  console.log('Server running on port 4000');
 });
