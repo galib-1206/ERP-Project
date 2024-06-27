@@ -7,14 +7,14 @@ const axios = require('axios');
 const app = express();
 app.use(bodyParser.json());
 
-// const sequelize = new Sequelize('postgres://user:password@localhost:5432/erpdb');
+const sequelize = new Sequelize('postgres://galib:iit123@localhost:5432/erpdb');
 
 // Connect to the database
 sequelize.authenticate()
   .then(() => console.log('Database connected...'))
   .catch(err => console.log('Error: ' + err))
 
-// const CAMUNDA_URL = 'http://localhost:8080/engine-rest';
+const CAMUNDA_URL = 'http://localhost:8080/engine-rest';
 
 // Define API endpoints
 // app.post('/start-workflow', async (req, res) => {
